@@ -2,14 +2,36 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ajay Kafle | Portfolio</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    <!-- SEO -->
+
+    <title>Ajay Kafle | Flutter Developer & Web Developer Nepal</title>
+
+    <meta name="description"
+        content="Official portfolio of Ajay Kafle - Flutter app developer, website developer, script writer and online researcher from Nepal.">
+
+    <meta name="keywords"
+        content="Ajay Kafle, Flutter Developer Nepal, Web Developer Nepal, Portfolio Website">
+
+    <meta name="author" content="Ajay Kafle">
+
+    <meta property="og:title" content="Ajay Kafle Portfolio">
+    <meta property="og:description"
+        content="Official portfolio website of Ajay Kafle - Flutter Developer & Website Developer from Nepal">
+
+    <meta property="og:url" content="https://www.ajaykafle.com.np">
+
+    <!-- GOOGLE FONT -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -17,370 +39,899 @@
             scroll-behavior: smooth;
         }
 
+        :root {
+
+            --card: rgba(255, 255, 255, 0.08);
+
+            --text: #ffffff;
+
+            --gray: #cbd5e1;
+
+            --border: rgba(255, 255, 255, 0.08);
+
+            --shadow: rgba(0, 0, 0, 0.3);
+
+        }
+
         body {
-            font-family: 'Poppins', sans-serif;
-            background: #0f172a;
-            color: white;
+
+            font-family: 'Inter', sans-serif;
+
             overflow-x: hidden;
+
+            color: white;
+
+            background:
+                radial-gradient(circle at top left, #7c3aed 0%, transparent 25%),
+                radial-gradient(circle at bottom right, #06b6d4 0%, transparent 25%),
+                linear-gradient(135deg, #0f172a, #111827, #1e293b);
+
+            background-attachment: fixed;
+
         }
 
-        body::before {
-            content: '';
+        /* LOADER */
+
+        #loader {
+
             position: fixed;
-            width: 500px;
-            height: 500px;
-            background: linear-gradient(45deg, #00c6ff, #0072ff);
-            filter: blur(150px);
-            top: -200px;
-            left: -100px;
-            z-index: -1;
+
+            width: 100%;
+
+            height: 100vh;
+
+            background: #0f172a;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            z-index: 99999;
+
+            transition: 1s ease;
+
         }
 
-        body::after {
-            content: '';
-            position: fixed;
-            width: 500px;
-            height: 500px;
-            background: linear-gradient(45deg, #ff00cc, #3333ff);
-            filter: blur(150px);
-            bottom: -200px;
-            right: -100px;
-            z-index: -1;
+        .loader-content {
+
+            width: 320px;
+
+            text-align: center;
+
         }
+
+        .loader-content h1 {
+
+            font-size: 42px;
+
+            font-weight: 800;
+
+            letter-spacing: 6px;
+
+            margin-bottom: 35px;
+
+            background: linear-gradient(to right, #ffffff, #60a5fa, #c084fc);
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+
+        }
+
+        .loading-bar {
+
+            width: 100%;
+
+            height: 10px;
+
+            background: rgba(255, 255, 255, 0.1);
+
+            border-radius: 50px;
+
+            overflow: hidden;
+
+        }
+
+        .loading-progress {
+
+            width: 0%;
+
+            height: 100%;
+
+            border-radius: 50px;
+
+            background: linear-gradient(to right,
+                    #7c3aed,
+                    #06b6d4,
+                    #ffffff);
+
+            animation: loading 2s ease forwards;
+
+        }
+
+        .loader-content p {
+
+            margin-top: 18px;
+
+            color: #cbd5e1;
+
+            letter-spacing: 2px;
+
+        }
+
+        @keyframes loading {
+
+            0% {
+                width: 0%;
+            }
+
+            20% {
+                width: 25%;
+            }
+
+            50% {
+                width: 60%;
+            }
+
+            80% {
+                width: 85%;
+            }
+
+            100% {
+                width: 100%;
+            }
+
+        }
+
+        /* NAVBAR */
+
+        nav {
+
+            position: fixed;
+
+            width: 100%;
+
+            top: 0;
+
+            z-index: 999;
+
+            background: rgba(255, 255, 255, 0.05);
+
+            backdrop-filter: blur(20px);
+
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+        }
+
+        .nav-container {
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 20px 25px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+        }
+
+        .logo {
+
+            font-size: 28px;
+
+            font-weight: 800;
+
+            letter-spacing: 3px;
+
+        }
+
+        nav ul {
+
+            display: flex;
+
+            list-style: none;
+
+            gap: 30px;
+
+        }
+
+        nav ul li a {
+
+            text-decoration: none;
+
+            color: white;
+
+            font-weight: 500;
+
+            transition: 0.3s;
+
+        }
+
+        nav ul li a:hover {
+
+            color: #60a5fa;
+
+        }
+
+        /* HERO */
 
         header {
+
             min-height: 100vh;
+
             display: flex;
+
             justify-content: center;
+
             align-items: center;
+
             text-align: center;
-            padding: 20px;
+
+            padding: 120px 20px 80px;
+
         }
 
         .hero {
-            max-width: 900px;
+
+            max-width: 1000px;
+
+            animation: fadeUp 1.2s ease;
+
         }
 
         .hero h1 {
-            font-size: 70px;
-            font-weight: 700;
-            background: linear-gradient(to right, #00c6ff, #ff00cc);
+
+            font-size: 95px;
+
+            font-weight: 800;
+
+            line-height: 1;
+
+            margin-bottom: 20px;
+
+            background: linear-gradient(to right,
+                    #ffffff,
+                    #60a5fa,
+                    #c084fc,
+                    #22d3ee);
+
+            background-size: 300%;
+
             -webkit-background-clip: text;
+
             -webkit-text-fill-color: transparent;
-            animation: fadeIn 1s ease;
+
+            animation: gradientMove 6s linear infinite;
+
+        }
+
+        @keyframes gradientMove {
+
+            0% {
+                background-position: 0%;
+            }
+
+            100% {
+                background-position: 300%;
+            }
+
         }
 
         .hero h2 {
-            margin-top: 15px;
+
             font-size: 28px;
+
             color: #cbd5e1;
-            animation: fadeIn 1.5s ease;
+
+            font-weight: 500;
+
         }
 
         .hero p {
-            margin-top: 25px;
-            font-size: 18px;
-            line-height: 1.8;
+
+            margin-top: 35px;
+
+            font-size: 19px;
+
+            line-height: 1.9;
+
             color: #dbeafe;
-            animation: fadeIn 2s ease;
+
+            max-width: 850px;
+
         }
 
         .buttons {
-            margin-top: 40px;
+
+            margin-top: 50px;
+
         }
 
         .btn {
+
             display: inline-block;
-            padding: 14px 28px;
-            margin: 10px;
-            border-radius: 50px;
+
+            padding: 16px 34px;
+
+            border-radius: 60px;
+
             text-decoration: none;
+
             font-weight: 600;
+
             transition: 0.4s;
+
+            margin: 10px;
+
         }
 
-        .btn-primary {
-            background: linear-gradient(45deg, #00c6ff, #0072ff);
+        .btn-dark {
+
+            background: linear-gradient(to right,
+                    #7c3aed,
+                    #06b6d4);
+
             color: white;
-            box-shadow: 0 0 20px rgba(0, 198, 255, 0.4);
+
+            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.4);
+
         }
 
-        .btn-primary:hover {
+        .btn-dark:hover {
+
             transform: translateY(-5px);
-            box-shadow: 0 0 30px rgba(0, 198, 255, 0.7);
+
+            box-shadow: 0 15px 40px rgba(6, 182, 212, 0.5);
+
         }
 
-        .btn-secondary {
-            border: 2px solid #ffffff33;
+        .btn-light {
+
+            background: rgba(255, 255, 255, 0.08);
+
+            border: 1px solid rgba(255, 255, 255, 0.08);
+
             color: white;
-            backdrop-filter: blur(10px);
+
+            backdrop-filter: blur(20px);
+
         }
 
-        .btn-secondary:hover {
-            background: white;
-            color: #0f172a;
+        .btn-light:hover {
+
+            transform: translateY(-5px);
+
+            background: rgba(255, 255, 255, 0.12);
+
         }
+
+        /* SECTION */
 
         section {
-            padding: 80px 10%;
+
+            padding: 100px 10%;
+
         }
 
         .section-title {
+
             text-align: center;
-            font-size: 42px;
-            margin-bottom: 60px;
-            background: linear-gradient(to right, #00c6ff, #ff00cc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+
+            font-size: 52px;
+
+            font-weight: 800;
+
+            margin-bottom: 70px;
+
         }
 
-        .about {
+        /* GRID */
+
+        .grid {
+
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            align-items: center;
+
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+            gap: 30px;
+
         }
+
+        /* CARD */
 
         .card {
+
             background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 25px;
-            backdrop-filter: blur(15px);
-            transition: 0.4s;
+
+            border: 1px solid rgba(255, 255, 255, 0.08);
+
+            padding: 40px;
+
+            border-radius: 30px;
+
+            backdrop-filter: blur(25px);
+
+            transition: 0.5s;
+
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+
         }
 
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
+
+            transform: translateY(-12px) scale(1.02);
+
+            background: rgba(255, 255, 255, 0.12);
+
         }
 
         .card h3 {
+
+            font-size: 28px;
+
             margin-bottom: 20px;
-            font-size: 24px;
-            color: #38bdf8;
+
         }
 
         .card p {
-            line-height: 1.8;
-            color: #e2e8f0;
+
+            color: #dbeafe;
+
+            line-height: 1.9;
+
+            font-size: 17px;
+
         }
 
-        .skills {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
+        .project-number {
+
+            font-size: 55px;
+
+            font-weight: 800;
+
+            color: rgba(255, 255, 255, 0.15);
+
+            margin-bottom: 20px;
+
         }
 
-        .skill {
-            background: rgba(255, 255, 255, 0.08);
-            padding: 25px;
-            border-radius: 20px;
-            text-align: center;
-            transition: 0.4s;
-        }
-
-        .skill:hover {
-            transform: scale(1.05);
-            background: rgba(255, 255, 255, 0.12);
-        }
-
-        .skill h4 {
-            margin-top: 10px;
-            font-size: 22px;
-        }
-
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .project {
-            background: rgba(255, 255, 255, 0.08);
-            padding: 30px;
-            border-radius: 25px;
-            transition: 0.4s;
-        }
-
-        .project:hover {
-            transform: translateY(-10px);
-        }
-
-        .project h3 {
-            margin-bottom: 15px;
-            color: #38bdf8;
-        }
-
-        .project p {
-            color: #e2e8f0;
-            line-height: 1.7;
-        }
+        /* CONTACT */
 
         .contact {
+
             text-align: center;
+
         }
 
         .contact p {
-            font-size: 18px;
-            color: #cbd5e1;
-            margin-bottom: 20px;
+
+            font-size: 20px;
+
+            color: #dbeafe;
+
+            margin-bottom: 30px;
+
         }
+
+        /* FOOTER */
 
         footer {
+
             text-align: center;
-            padding: 30px;
-            color: #94a3b8;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+            padding: 40px;
+
+            color: #cbd5e1;
+
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+
         }
 
-        @keyframes fadeIn {
+        /* REVEAL ANIMATION */
+
+        .reveal {
+
+            opacity: 0;
+
+            transform: translateY(70px);
+
+            transition: all 1s ease;
+
+        }
+
+        .reveal.active {
+
+            opacity: 1;
+
+            transform: translateY(0);
+
+        }
+
+        @keyframes fadeUp {
+
             from {
+
                 opacity: 0;
-                transform: translateY(20px);
+
+                transform: translateY(50px);
+
             }
 
             to {
+
                 opacity: 1;
+
                 transform: translateY(0);
+
             }
+
         }
 
+        /* MOBILE */
+
         @media(max-width:768px) {
+
             .hero h1 {
-                font-size: 45px;
+
+                font-size: 58px;
+
             }
 
             .hero h2 {
-                font-size: 22px;
+
+                font-size: 20px;
+
             }
 
             .section-title {
-                font-size: 34px;
+
+                font-size: 40px;
+
             }
+
+            nav ul {
+
+                display: none;
+
+            }
+
         }
+
     </style>
+
 </head>
 
 <body>
 
+    <!-- LOADER -->
+
+    <div id="loader">
+
+        <div class="loader-content">
+
+            <h1>AJAY</h1>
+
+            <div class="loading-bar">
+
+                <div class="loading-progress"></div>
+
+            </div>
+
+            <p>Loading Portfolio...</p>
+
+        </div>
+
+    </div>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="nav-container">
+
+            <div class="logo">AJAY.</div>
+
+            <ul>
+
+                <li><a href="#about">About</a></li>
+
+                <li><a href="#skills">Skills</a></li>
+
+                <li><a href="#projects">Projects</a></li>
+
+                <li><a href="#contact">Contact</a></li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+    <!-- HERO -->
+
     <header>
+
         <div class="hero">
+
             <h1>Ajay Kafle</h1>
-            <h2>Flutter App Developer • Website Developer • Script Writer • Online Researcher</h2>
+
+            <h2>
+                Flutter Developer • Web Developer • Script Writer
+            </h2>
 
             <p>
-                Hello! I’m Ajay Kafle, an 18-year-old passionate tech creator from Nepal.
-                I build modern Flutter applications, responsive websites, write engaging scripts,
-                and perform detailed online research. I love turning creative ideas into real digital experiences.
+
+                Official portfolio website of Ajay Kafle from Nepal.
+                I build modern Flutter applications, responsive websites,
+                and premium digital experiences with beautiful UI/UX.
+
             </p>
 
             <div class="buttons">
-                <a href="#about" class="btn btn-primary">Explore Portfolio</a>
-                <a href="#contact" class="btn btn-secondary">Contact Me</a>
+
+                <a href="#projects" class="btn btn-dark">
+                    View Projects
+                </a>
+
+                <a href="#contact" class="btn btn-light">
+                    Contact Me
+                </a>
+
             </div>
+
         </div>
+
     </header>
 
-    <section id="about">
+    <!-- ABOUT -->
+
+    <section id="about" class="reveal">
+
         <h2 class="section-title">About Me</h2>
 
-        <div class="about">
+        <div class="grid">
+
             <div class="card">
+
                 <h3>Who Am I?</h3>
+
                 <p>
-                    I am a young developer and creative thinker focused on building beautiful,
-                    fast, and user-friendly digital products. I enjoy learning new technologies
-                    and solving real-world problems through coding and creativity.
+
+                    My name is Ajay Kafle. I am an 18-year-old Flutter developer
+                    and website developer from Nepal passionate about creating
+                    modern digital products and attractive user experiences.
+
                 </p>
+
             </div>
 
             <div class="card">
+
                 <h3>My Mission</h3>
+
                 <p>
-                    My goal is to create impactful apps, websites, and digital solutions
-                    that help businesses and individuals grow online. I continuously improve
-                    my skills to become a professional software engineer and entrepreneur.
+
+                    My mission is to build impactful apps, websites,
+                    and innovative digital solutions that help businesses
+                    and individuals grow online.
+
                 </p>
+
             </div>
+
         </div>
+
     </section>
 
-    <section>
+    <!-- SKILLS -->
+
+    <section id="skills" class="reveal">
+
         <h2 class="section-title">Skills</h2>
 
-        <div class="skills">
-            <div class="skill">
-                <h4>Flutter Development</h4>
-                <p>Modern Android & cross-platform applications using Flutter.</p>
+        <div class="grid">
+
+            <div class="card">
+
+                <h3>Flutter Development</h3>
+
+                <p>
+
+                    Cross-platform mobile applications using Flutter,
+                    Firebase and modern user interfaces.
+
+                </p>
+
             </div>
 
-            <div class="skill">
-                <h4>Website Development</h4>
-                <p>Responsive and attractive websites using HTML, CSS & JavaScript.</p>
+            <div class="card">
+
+                <h3>Website Development</h3>
+
+                <p>
+
+                    Responsive and premium websites using HTML,
+                    CSS and JavaScript with SEO optimization.
+
+                </p>
+
             </div>
 
-            <div class="skill">
-                <h4>Script Writing</h4>
-                <p>Creative scripts for documentaries, YouTube videos, and storytelling.</p>
+            <div class="card">
+
+                <h3>Online Research</h3>
+
+                <p>
+
+                    Deep internet research, timeline analysis and
+                    documentary-style information gathering.
+
+                </p>
+
             </div>
 
-            <div class="skill">
-                <h4>Online Research</h4>
-                <p>Deep internet research, timeline analysis, and information gathering.</p>
-            </div>
         </div>
+
     </section>
 
-    <section>
+    <!-- PROJECTS -->
+
+    <section id="projects" class="reveal">
+
         <h2 class="section-title">Projects</h2>
 
-        <div class="projects">
+        <div class="grid">
 
-            <div class="project">
+            <div class="card">
+
+                <div class="project-number">01</div>
+
                 <h3>College Management App</h3>
+
                 <p>
-                    A smart college system with notices, attendance, student management,
-                    and Firebase integration.
+
+                    Smart college system with notices,
+                    attendance and student management.
+
                 </p>
+
             </div>
 
-            <div class="project">
-                <h3>Modern Portfolio Websites</h3>
+            <div class="card">
+
+                <div class="project-number">02</div>
+
+                <h3>Portfolio Websites</h3>
+
                 <p>
-                    Stylish personal and business portfolio websites with modern UI design
-                    and mobile responsiveness.
+
+                    Modern business and personal websites
+                    with animations and responsive design.
+
                 </p>
+
             </div>
 
-            <div class="project">
-                <h3>Research & Documentary Scripts</h3>
+            <div class="card">
+
+                <div class="project-number">03</div>
+
+                <h3>Research Projects</h3>
+
                 <p>
-                    Detailed research reports and documentary-style scripts on politics,
-                    current affairs, and social topics.
+
+                    Detailed online research and documentary-style
+                    script writing projects.
+
                 </p>
+
             </div>
 
         </div>
+
     </section>
 
-    <section id="contact">
+    <!-- CONTACT -->
+
+    <section id="contact" class="reveal">
+
         <h2 class="section-title">Contact Me</h2>
 
         <div class="contact">
+
             <p>
                 Interested in working together or building something amazing?
             </p>
 
-            <a href="mailto:yourmail@example.com" class="btn btn-primary">
+            <a href="mailto:yourmail@example.com" class="btn btn-dark">
                 Email Me
             </a>
+
         </div>
+
     </section>
 
+    <!-- FOOTER -->
+
     <footer>
-        © 2026 Ajay Kafle • All Rights Reserved
+
+        © 2026 Ajay Kafle • Official Portfolio Website
+
     </footer>
+
+    <!-- SEO STRUCTURED DATA -->
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ajay Kafle",
+    "url": "https://www.ajaykafle.com.np",
+    "jobTitle": "Flutter Developer"
+}
+</script>
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        // FIXED LOADER
+
+        window.addEventListener("load", () => {
+
+            const loader = document.getElementById("loader");
+
+            setTimeout(() => {
+
+                loader.style.opacity = "0";
+
+                loader.style.pointerEvents = "none";
+
+                setTimeout(() => {
+
+                    loader.style.display = "none";
+
+                }, 1000);
+
+            }, 2300);
+
+        });
+
+        // SCROLL REVEAL
+
+        function reveal() {
+
+            const reveals = document.querySelectorAll(".reveal");
+
+            reveals.forEach((element) => {
+
+                const windowHeight = window.innerHeight;
+
+                const revealTop = element.getBoundingClientRect().top;
+
+                const revealPoint = 100;
+
+                if (revealTop < windowHeight - revealPoint) {
+
+                    element.classList.add("active");
+
+                }
+
+            });
+
+        }
+
+        window.addEventListener("scroll", reveal);
+
+        reveal();
+
+    </script>
 
 </body>
 
